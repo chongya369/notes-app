@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>便签小程序</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- 登录/注册页面 -->
+    <div id="auth-page" class="page">
+        <div class="auth-container">
+            <h1 class="title">便签小程序</h1>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">登录</button>
+                <button class="tab-btn" data-tab="register">注册</button>
+            </div>
+
+            <!-- 登录表单 -->
+            <form id="login-form" class="auth-form active">
+                <input type="text" name="username" placeholder="用户名" required>
+                <input type="password" name="password" placeholder="密码" required>
+                <button type="submit" class="submit-btn">登录</button>
+            </form>
+
+            <!-- 注册表单 -->
+            <form id="register-form" class="auth-form">
+                <input type="text" name="username" placeholder="用户名" required minlength="3">
+                <input type="password" name="password" placeholder="密码" required minlength="6">
+                <input type="text" name="key" placeholder="注册密钥（如有）">
+                <button type="submit" class="submit-btn">注册</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 主页面 -->
+    <div id="main-page" class="page hidden">
+        <header class="header">
+            <h1>我的便签</h1>
+            <div class="header-actions">
+                <button id="create-note-btn" class="create-btn">+ 新建便签</button>
+                <span id="username-display"></span>
+                <button id="logout-btn" class="logout-btn">退出</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="notes-container" class="notes-container"></div>
+        </main>
+    </div>
+
+    <!-- 新建便签弹窗 -->
+    <div id="create-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>新建便签</h2>
+            <textarea id="new-note-content" placeholder="便签内容"></textarea>
+            <div class="color-picker">
+                <label>颜色：</label>
+                <input type="color" id="new-note-color" value="#FFE4B5">
+            </div>
+            <div class="modal-actions">
+                <button id="save-new-btn" class="save-btn">保存</button>
+                <button id="cancel-create-btn" class="cancel-btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
